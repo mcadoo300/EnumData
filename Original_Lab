@@ -1,0 +1,85 @@
+// Name:
+//
+// Header Doc:
+
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.IO;
+
+//Purpose: This program reads lines of data from file reformat.dat and writes them to a file dataout.dat with the 
+//following changes:             
+//All uppercase letters are converted to lowercase, all lowercase letters are converted to Uppercase,
+//digits are unchanged, and all other characters except blanks, newline, or carriage returns are removed.                                       
+//The program use a value returning function to determine what type of char has been read and return its corresponding 
+//enumerated type. The enumerated type is then used within a switch statement to produce the appropriate 
+//output
+
+namespace Enumeration
+{
+    
+    class EnumerationClass
+    {
+        const int EOF = -1;
+        enum CharEnum {LO_CASE, UP_CASE, DIGIT, BLANK_NEWLINE_RETURN, OTHER};
+
+
+        static void Main(string[] args)
+        {
+         
+            //Ensure datafile exists         
+            if (!(File.Exists("reformat.dat")))
+            {
+                //Print appropriate error message and exit
+                Console.WriteLine("Input File does not exist");
+                System.Environment.Exit(1);
+            }
+
+            StreamReader sr = new StreamReader("reformat.dat");
+            StreamWriter sw = new StreamWriter("dataout.dat");
+            
+            char ch;     //holds single char after conversion
+            int intNum;     //holds unicode integer equivalent of value read in 
+
+            
+            intNum = sr.Read();                        //read first character
+            while (intNum != EOF)
+            {
+
+                ch = Convert.ToChar(intNum);           // convert the integer equivalent to a char
+                
+                //Complete function KindOfChar
+                switch (KindOfChar(ch))             
+                // based on the type of enumeration type returned above -- output the correct character
+                // to the file
+                {                              
+
+                    
+                }
+
+                intNum = sr.Read();                    //read next character
+
+            } //end while   
+
+            //close files
+            sr.Close();
+            sw.Close();
+        }//end Main
+
+            //**********************************************************************************            
+            // Post: character has been converted to the corresponding           
+            //       constant in the enumeration type CharEnum.           
+
+            static CharEnum KindOfChar(char character)     
+            {
+                //Determine the type of character and return its corresponding enumeration type
+                
+
+
+            } //end KindOfChar
+    }//end class
+}//end namespace
+
+                                                      
