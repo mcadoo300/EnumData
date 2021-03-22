@@ -1,5 +1,5 @@
-// Name:
-//
+// Name: Marc McAdoo 
+//3_22_21
 // Header Doc:
 
 
@@ -11,11 +11,13 @@ using System.IO;
 
 //Purpose: This program reads lines of data from file reformat.dat and writes them to a file dataout.dat with the 
 //following changes:             
-//All uppercase letters are converted to lowercase, all lowercase letters are converted to Uppercase,
-//digits are unchanged, and all other characters except blanks, newline, or carriage returns are removed.                                       
+//All uppercase letters are converted to lowercase
+//all lowercase letters are converted to Uppercase
+//digits are unchanged
+//blanks, newline, or carriage returns are removed
+//other
 //The program use a value returning function to determine what type of char has been read and return its corresponding 
-//enumerated type. The enumerated type is then used within a switch statement to produce the appropriate 
-//output
+//enumerated type. The enumerated type is then used within a switch statement to produce the appropriate output
 
 namespace Enumeration
 {
@@ -58,6 +60,8 @@ namespace Enumeration
 
                     
                 }
+                //output to file
+                sw.Write(ch.ToString());
 
                 intNum = sr.Read();                    //read next character
 
@@ -72,7 +76,7 @@ namespace Enumeration
             // Post: character has been converted to the corresponding           
             //       constant in the enumeration type CharEnum.           
 
-            static CharEnum KindOfChar(char character)     
+            static CharEnum KindOfChar(int charVal)     
             {
                 //Determine the type of character and return its corresponding enumeration type
                 
